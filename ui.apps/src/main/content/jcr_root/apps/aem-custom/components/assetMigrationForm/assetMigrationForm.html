@@ -1,0 +1,26 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+	<sly data-sly-call="${clientlib.all @ categories='aem-custom.assetMigration'}"></sly>
+</sly>
+<div id="${properties.id}" class="asset-migration-form">
+	<sly data-sly-resource="${ 'title' @ resourceType='aem-custom/components/title', decorationTagName='div'}"></sly>
+	<form class="form">
+		<sly data-sly-resource="${ 'dataSource' @ resourceType='aem-custom/components/form/options', decorationTagName='div'}"></sly>
+		<sly data-sly-resource="${ 'autoSchedule' @ resourceType='aem-custom/components/form/options', decorationTagName='div'}"></sly>
+		<sly data-sly-resource="${ 'startIndex' @ resourceType='aem-custom/components/form/text', decorationTagName='div'}"></sly>
+		<input type="hidden" id="previousStartIndex" value="0">
+		<sly data-sly-resource="${ 'batchSize' @ resourceType='aem-custom/components/form/text', decorationTagName='div'}"></sly>
+		<sly data-sly-resource="${ 'sourcePath' @ resourceType='aem-custom/components/form/text', decorationTagName='div'}"></sly>
+		<sly data-sly-resource="${ 'destinationPath' @ resourceType='aem-custom/components/form/text', decorationTagName='div'}"></sly>
+		<div id="loader" class="loader"></div>
+		<sly data-sly-resource="${ 'submit' @ resourceType='aem-custom/components/form/button', decorationTagName='div'}"></sly>
+	</form>
+
+	<div class="overlay">
+		<div id="popup" class="popup hidden">
+			<div class = "close">
+				<button id="runNextBatchBtn"> Run Next Batch </button>
+				<button id="closePopupBtn"> Close </button>
+			</div>
+		</div>
+	</div>
+</div>
